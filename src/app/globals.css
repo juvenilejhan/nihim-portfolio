@@ -40,11 +40,90 @@ body {
     sans-serif;
 }
 
+/* Section surface backgrounds for better visual separation */
+
+.section-surface-1 {
+  background-color: rgba(15, 23, 42, 0.85); /* slate-900 */
+}
+
+.section-surface-2 {
+  background-color: rgba(8, 47, 73, 0.85); /* sky-900-ish */
+}
+
+.section-surface-3 {
+  background-color: rgba(30, 64, 175, 0.85); /* indigo-800-ish */
+}
+
+.section-surface-4 {
+  background-color: rgba(12, 74, 110, 0.85); /* teal/sky mix */
+}
+
+.section-surface-5 {
+  background-color: rgba(22, 101, 52, 0.85); /* emerald-800-ish */
+}
+
+.section-surface-6 {
+  background-color: rgba(15, 23, 42, 0.7); /* slightly lighter slate */
+}
+
+.section-surface-7 {
+  background-color: rgba(30, 64, 175, 0.7);
+}
+
+.section-surface-8 {
+  background-color: rgba(8, 47, 73, 0.7);
+}
+
 /* Light theme readability tweaks */
 
 /* Make main text dark on light theme for better contrast */
 :root[data-theme="light"] body {
   color: #111827; /* slate-900 */
+}
+
+/* Light-theme variants of section backgrounds */
+
+:root[data-theme="light"] .section-surface-1 {
+  background-color: rgba(255, 255, 255, 0.96);
+}
+
+:root[data-theme="light"] .section-surface-2 {
+  background-color: rgba(239, 246, 255, 0.96); /* slate/blue-50 */
+}
+
+:root[data-theme="light"] .section-surface-3 {
+  background-color: rgba(240, 249, 255, 0.96); /* sky-50 */
+}
+
+:root[data-theme="light"] .section-surface-4 {
+  background-color: rgba(236, 253, 245, 0.96); /* emerald-50 */
+}
+
+:root[data-theme="light"] .section-surface-5 {
+  background-color: rgba(248, 250, 252, 0.96); /* slate-50 */
+}
+
+:root[data-theme="light"] .section-surface-6 {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme="light"] .section-surface-7 {
+  background-color: rgba(239, 246, 255, 0.9);
+}
+
+:root[data-theme="light"] .section-surface-8 {
+  background-color: rgba(240, 249, 255, 0.9);
+}
+
+:root[data-theme="light"] .section-surface-1,
+:root[data-theme="light"] .section-surface-2,
+:root[data-theme="light"] .section-surface-3,
+:root[data-theme="light"] .section-surface-4,
+:root[data-theme="light"] .section-surface-5,
+:root[data-theme="light"] .section-surface-6,
+:root[data-theme="light"] .section-surface-7,
+:root[data-theme="light"] .section-surface-8 {
+  border-color: rgba(15, 23, 42, 0.08);
 }
 
 :root[data-theme="light"] h1,

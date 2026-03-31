@@ -22,11 +22,9 @@ export const metadata: Metadata = {
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Education", href: "#education" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Publications", href: "#publications" },
-  { label: "Blog", href: "#blog" },
+  { label: "Experience", href: "#clinical-volunteer" },
+  { label: "Research", href: "#research" },
+  { label: "Reflections", href: "#reflections" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -50,16 +48,16 @@ export default function RootLayout({
                     Portfolio
                   </span>
                   <span className="text-sm font-semibold text-slate-50">
-                    Medical Student
+                    Hossain Nihim
                   </span>
                 </div>
-                <div className="flex items-center gap-4">
-                  <nav className="hidden gap-6 text-xs font-medium text-slate-200 sm:flex">
+                <div className="flex items-center gap-3">
+                  <nav className="flex max-w-[65vw] items-center gap-3 overflow-x-auto text-[11px] font-medium text-slate-200 sm:max-w-none sm:gap-6 sm:text-xs">
                     {navItems.map((item) => (
                       <a
                         key={item.href}
                         href={item.href}
-                        className="transition-colors hover:text-sky-300"
+                        className="whitespace-nowrap transition-colors hover:text-sky-300"
                       >
                         {item.label}
                       </a>
@@ -76,7 +74,7 @@ export default function RootLayout({
 
             <footer className="border-t border-white/10 py-6 text-center text-xs text-slate-400">
               <p>
-                &copy; {new Date().getFullYear()} Medical student portfolio. All
+                &copy; {new Date().getFullYear()} Nihim&apos;s portfolio. All
                 rights reserved.
               </p>
             </footer>

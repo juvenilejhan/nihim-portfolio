@@ -15,6 +15,7 @@ type ExperienceItem = {
   location?: string;
   description: string;
   highlights?: string[];
+  reflection?: string;
 };
 
 type SkillCategory = {
@@ -27,6 +28,65 @@ type BlogPost = {
   date: string;
   summary: string;
 };
+
+type IconProps = {
+  className?: string;
+};
+
+function MailIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={["h-4 w-4", className].filter(Boolean).join(" ")}
+    >
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="14"
+        rx="2"
+        ry="2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <polyline
+        points="4 7 12 12 20 7"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function FacebookIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={["h-4 w-4", className].filter(Boolean).join(" ")}
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="4"
+        ry="4"
+        fill="currentColor"
+        opacity="0.12"
+      />
+      <path
+        d="M14.5 7H13a3 3 0 0 0-3 3v2H8.5v3H10v5h3v-5h2.1l.9-3H13v-2a1 1 0 0 1 1-1h1.5V7Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
 
 const profileImage = "/nihim-profile.jpg";
 
@@ -49,7 +109,7 @@ const education: EducationItem[] = [
   {
     institution: "Sir Salimullah Medical College",
     program: "MBBS, Bachelor of Medicine and Bachelor of Surgery",
-    period: "20XX " + "–" + " Present",
+    period: "2026 " + "–" + " Present",
     location: "Dhaka, Bangladesh",
     details: [
       "Pre-clinical foundation in anatomy, physiology, and biochemistry.",
@@ -57,13 +117,13 @@ const education: EducationItem[] = [
     ],
   },
   {
-    institution: "Previous Institution (Science Stream / Pre-med)",
+    institution: "Notre Dame College",
     program: "Pre-medical / Higher secondary education",
-    period: "20XX " + "–" + " 20XX",
-    location: "City, Country",
+    period: "2023 " + "–" + " 2024",
+    location: "Dhaka, Bangladesh",
     details: [
-      "Strong grounding in biology, chemistry, and physics.",
-      "Participation in academic or community activities related to health.",
+      "Achieved GPA 5.00 in HSC (Science) with strong performance in Biology, Chemistry, and Physics.",
+      "Completed Higher Secondary Certificate (Science) at a leading college in Dhaka.",
     ],
   },
 ];
@@ -95,17 +155,40 @@ const skills: SkillCategory[] = [
   },
   {
     name: "Languages & Other Interests",
-    skills: [
-      "Spoken and written proficiency in English (and your local language)",
-      "Interest in community outreach, public speaking, or teaching",
-      "Hobbies that support balance and well-being (e.g., sports, music)",
-    ],
+    skills: ["Bangla " + "–" + " native", "English " + "–" + " fluent"],
   },
 ];
 
-const projects: ExperienceItem[] = [];
+const clinicalVolunteer: ExperienceItem[] = [];
 
-const volunteerExperience: ExperienceItem[] = [];
+const researchContributions: ExperienceItem[] = [];
+
+const leadershipActivities: ExperienceItem[] = [
+  {
+    organisation: "Medical Student Cultural Club (Demo)",
+    role: "First-year representative (Demo)",
+    period: "2026 " + "–" + " Present",
+    location: "Sir Salimullah Medical College",
+    description:
+      "Helps coordinate communication between first-year students and club leaders, sharing information about events and encouraging participation.",
+    highlights: [
+      "Supported the organisation of welcome activities for new students.",
+      "Practised teamwork, public speaking, and basic event coordination skills.",
+    ],
+  },
+  {
+    organisation: "College Health Awareness Campaign (Demo)",
+    role: "Volunteer organiser (Demo)",
+    period: "Planned for a future semester",
+    location: "Dhaka, Bangladesh",
+    description:
+      "Demo entry describing involvement in planning a small health awareness activity with classmates, focusing on preventive health messages.",
+    highlights: [
+      "Developed confidence in taking initiative within a student group.",
+      "Learned how to break down health topics into clear, understandable messages.",
+    ],
+  },
+];
 
 const publications: string[] = [];
 
@@ -158,10 +241,6 @@ export default function Home() {
               ? ` 
             · ${student.institution}`
               : null}
-            {student.year
-              ? ` 
-            · ${student.year}`
-              : null}
           </p>
           {student.location && (
             <p className="text-sm text-slate-300">{student.location}</p>
@@ -184,7 +263,7 @@ export default function Home() {
         </div>
 
         <div className="flex items-center justify-center">
-          <div className="relative h-40 w-40 rounded-full bg-gradient-to-br from-sky-400 via-sky-300 to-emerald-300 p-[2px] shadow-lg shadow-sky-500/40">
+          <div className="relative h-40 w-40 rounded-full bg-linear-to-br from-sky-400 via-sky-300 to-emerald-300 p-0.5 shadow-lg shadow-sky-500/40">
             <Image
               src={profileImage}
               alt={student.name ? `Portrait of ${student.name}` : "Profile"}
@@ -198,7 +277,10 @@ export default function Home() {
       </section>
 
       {/* Education */}
-      <section id="education" className="space-y-6">
+      <section
+        id="education"
+        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-1"
+      >
         <SectionTitle eyebrow="Academic path" label="Education & training" />
         <div className="grid gap-4 md:grid-cols-2">
           {education.map((item) => (
@@ -236,9 +318,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills & Interests */}
-      <section id="skills" className="space-y-6">
-        <SectionTitle eyebrow="Strengths" label="Skills & interests" />
+      {/* Skills & Certifications */}
+      <section
+        id="skills"
+        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-2"
+      >
+        <SectionTitle eyebrow="Strengths" label="Skills & certifications" />
         <div className="grid gap-4 md:grid-cols-2">
           {skills.map((category) => (
             <article
@@ -261,58 +346,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects / Research */}
-      <section id="projects" className="space-y-6">
-        <SectionTitle
-          eyebrow="Academic development"
-          label="Projects & research"
-        />
-        {projects.length === 0 ? (
-          <p className="text-sm text-slate-300">
-            Project work and research experiences will be added here as they
-            develop. This space can highlight student conferences, audits,
-            quality-improvement projects, and future research.
-          </p>
-        ) : (
-          <div className="grid gap-4 md:grid-cols-2">
-            {projects.map((item) => (
-              <article
-                key={`${item.organisation}-${item.role}-${item.period}`}
-                className="rounded-2xl border border-white/10 bg-slate-900/60 p-5 shadow-sm shadow-sky-500/10"
-              >
-                <h3 className="text-sm font-semibold text-slate-50">
-                  {item.role}
-                </h3>
-                <p className="text-xs font-medium text-sky-200">
-                  {item.organisation}
-                </p>
-                <p className="mt-1 text-xs text-slate-400">{item.period}</p>
-                <p className="mt-2 text-xs text-slate-300">
-                  {item.description}
-                </p>
-                {item.highlights?.length ? (
-                  <ul className="mt-2 space-y-1 text-xs text-slate-300">
-                    {item.highlights.map((highlight) => (
-                      <li key={highlight} className="flex gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </article>
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* Volunteer / Clinical Experience */}
-      <section id="experience" className="space-y-6">
+      {/* Clinical & Volunteer Experience */}
+      <section
+        id="clinical-volunteer"
+        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-3"
+      >
         <SectionTitle
           eyebrow="Real-world exposure"
-          label="Volunteer & clinical experience"
+          label="Clinical & volunteer experience"
         />
-        {volunteerExperience.length === 0 ? (
+        {clinicalVolunteer.length === 0 ? (
           <p className="text-sm text-slate-300">
             Early experiences such as hospital volunteering, community health
             camps, blood donation drives, or health awareness events can be
@@ -321,7 +364,7 @@ export default function Home() {
           </p>
         ) : (
           <div className="grid gap-4 md:grid-cols-2">
-            {volunteerExperience.map((item) => (
+            {clinicalVolunteer.map((item) => (
               <article
                 key={`${item.organisation}-${item.role}-${item.period}`}
                 className="rounded-2xl border border-white/10 bg-slate-900/60 p-5 shadow-sm shadow-sky-500/10"
@@ -352,8 +395,120 @@ export default function Home() {
         )}
       </section>
 
+      {/* Research Contributions */}
+      <section
+        id="research"
+        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-4"
+      >
+        <SectionTitle
+          eyebrow="Academic development"
+          label="Research contributions"
+        />
+        {researchContributions.length === 0 ? (
+          <p className="text-sm text-slate-300">
+            Research projects, audits, and scholarly activities will be added
+            here as they develop. This space can highlight conference posters,
+            student journals, and future research collaborations.
+          </p>
+        ) : (
+          <div className="grid gap-4 md:grid-cols-2">
+            {researchContributions.map((item) => (
+              <article
+                key={`${item.organisation}-${item.role}-${item.period}`}
+                className="rounded-2xl border border-white/10 bg-slate-900/60 p-5 shadow-sm shadow-sky-500/10"
+              >
+                <h3 className="text-sm font-semibold text-slate-50">
+                  {item.role}
+                </h3>
+                <p className="text-xs font-medium text-sky-200">
+                  {item.organisation}
+                </p>
+                <p className="mt-1 text-xs text-slate-400">{item.period}</p>
+                <p className="mt-2 text-xs text-slate-300">
+                  {item.description}
+                </p>
+                {item.highlights?.length ? (
+                  <ul className="mt-2 space-y-1 text-xs text-slate-300">
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-2">
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Leadership & Activities */}
+      <section
+        id="leadership"
+        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-5"
+      >
+        <SectionTitle
+          eyebrow="Roles & impact"
+          label="Leadership & activities"
+        />
+        {leadershipActivities.length === 0 ? (
+          <p className="text-sm text-slate-300">
+            Leadership roles, student organizations, committee work, and other
+            co-curricular activities can be highlighted here, with a focus on
+            responsibilities, impact, and skills developed.
+          </p>
+        ) : (
+          <div className="grid gap-4 md:grid-cols-2">
+            {leadershipActivities.map((item) => (
+              <article
+                key={`${item.organisation}-${item.role}-${item.period}`}
+                className="rounded-2xl border border-white/10 bg-slate-900/60 p-5 shadow-sm shadow-sky-500/10"
+              >
+                <h3 className="text-sm font-semibold text-slate-50">
+                  {item.role}
+                </h3>
+                <p className="text-xs font-medium text-sky-200">
+                  {item.organisation}
+                </p>
+                <p className="mt-1 text-xs text-slate-400">{item.period}</p>
+                <p className="mt-2 text-xs text-slate-300">
+                  {item.description}
+                </p>
+                {item.highlights?.length ? (
+                  <ul className="mt-2 space-y-1 text-xs text-slate-300">
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-2">
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Personal Interests */}
+      <section
+        id="personal-interests"
+        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-6"
+      >
+        <SectionTitle eyebrow="Beyond academics" label="Personal interests" />
+        <p className="text-sm text-slate-300">
+          Outside of medicine, I enjoy football, photography, music, and
+          reading. These interests help me stay balanced, creative, and
+          connected with people beyond the classroom.
+        </p>
+      </section>
+
       {/* Publications */}
-      <section id="publications" className="space-y-6">
+      <section
+        id="publications"
+        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-7"
+      >
         <SectionTitle
           eyebrow="Academic output"
           label="Publications & presentations"
@@ -373,9 +528,15 @@ export default function Home() {
         )}
       </section>
 
-      {/* Blog / Reflections */}
-      <section id="blog" className="space-y-6">
-        <SectionTitle eyebrow="Reflections" label="Blog & learning notes" />
+      {/* Reflections */}
+      <section
+        id="reflections"
+        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-8"
+      >
+        <SectionTitle
+          eyebrow="Reflections"
+          label="Reflections & learning notes"
+        />
         <div className="grid gap-4 md:grid-cols-2">
           {blogPosts.map((post) => (
             <article
@@ -405,7 +566,10 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="space-y-6">
+      <section
+        id="contact"
+        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-1"
+      >
         <SectionTitle eyebrow="Get in touch" label="Contact & links" />
         <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
           <div className="space-y-3 text-sm text-slate-200">
@@ -418,9 +582,10 @@ export default function Home() {
               <p className="font-medium text-sky-200">Email</p>
               <a
                 href="mailto:nihim1123@gmail.com"
-                className="text-sm text-sky-300 underline underline-offset-4 hover:text-sky-200"
+                className="inline-flex items-center gap-2 text-sm text-sky-300 underline underline-offset-4 hover:text-sky-200"
               >
-                nihim1123@gmail.com
+                <MailIcon />
+                <span>nihim1123@gmail.com</span>
               </a>
             </div>
           </div>
@@ -430,19 +595,12 @@ export default function Home() {
               <li>
                 <a
                   href="https://www.facebook.com/hossain.nihim"
-                  className="text-sky-300 underline underline-offset-4 hover:text-sky-200"
+                  className="inline-flex items-center gap-2 text-sky-300 underline underline-offset-4 hover:text-sky-200"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noreferrer noopener"
                 >
-                  Facebook (MD. Tasnim Hossain Nihim)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sky-300 underline underline-offset-4 hover:text-sky-200"
-                >
-                  Optional: Add LinkedIn or research profiles in the future
+                  <FacebookIcon />
+                  <span>Facebook (MD. Tasnim Hossain Nihim)</span>
                 </a>
               </li>
             </ul>
