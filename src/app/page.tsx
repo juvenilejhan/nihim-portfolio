@@ -195,13 +195,13 @@ const publications: string[] = [];
 const blogPosts: BlogPost[] = [
   {
     title: "Starting Medical School: Building Strong Foundations",
-    date: "20XX-09-01",
+    date: "2026-01-15",
     summary:
       "Reflections on the transition into medical school, early impressions of pre-clinical subjects, and setting realistic goals for growth.",
   },
   {
     title: "Learning to Learn in Medicine",
-    date: "20XX-11-15",
+    date: "2026-03-10",
     summary:
       "Thoughts on note-taking, active learning strategies, and balancing depth of understanding with exam preparation.",
   },
