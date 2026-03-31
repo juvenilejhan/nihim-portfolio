@@ -226,7 +226,7 @@ export default function Home() {
       {/* About / Hero */}
       <section
         id="about"
-        className="grid gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl shadow-sky-500/10 backdrop-blur md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]"
+        className="scroll-mt-28 grid gap-10 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl shadow-sky-500/10 backdrop-blur md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]"
       >
         <div className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-300/90">
@@ -279,7 +279,7 @@ export default function Home() {
       {/* Education */}
       <section
         id="education"
-        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-1"
+        className="scroll-mt-28 space-y-6 rounded-3xl border border-white/10 p-6 section-surface-1"
       >
         <SectionTitle eyebrow="Academic path" label="Education & training" />
         <div className="grid gap-4 md:grid-cols-2">
@@ -321,7 +321,7 @@ export default function Home() {
       {/* Skills & Certifications */}
       <section
         id="skills"
-        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-2"
+        className="scroll-mt-28 space-y-6 rounded-3xl border border-white/10 p-6 section-surface-2"
       >
         <SectionTitle eyebrow="Strengths" label="Skills & certifications" />
         <div className="grid gap-4 md:grid-cols-2">
@@ -349,7 +349,7 @@ export default function Home() {
       {/* Clinical & Volunteer Experience */}
       <section
         id="clinical-volunteer"
-        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-3"
+        className="scroll-mt-28 space-y-6 rounded-3xl border border-white/10 p-6 section-surface-3"
       >
         <SectionTitle
           eyebrow="Real-world exposure"
@@ -398,7 +398,7 @@ export default function Home() {
       {/* Research Contributions */}
       <section
         id="research"
-        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-4"
+        className="scroll-mt-28 space-y-6 rounded-3xl border border-white/10 p-6 section-surface-4"
       >
         <SectionTitle
           eyebrow="Academic development"
@@ -446,7 +446,7 @@ export default function Home() {
       {/* Leadership & Activities */}
       <section
         id="leadership"
-        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-5"
+        className="scroll-mt-28 space-y-6 rounded-3xl border border-white/10 p-6 section-surface-5"
       >
         <SectionTitle
           eyebrow="Roles & impact"
@@ -494,7 +494,7 @@ export default function Home() {
       {/* Personal Interests */}
       <section
         id="personal-interests"
-        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-6"
+        className="scroll-mt-28 space-y-6 rounded-3xl border border-white/10 p-6 section-surface-6"
       >
         <SectionTitle eyebrow="Beyond academics" label="Personal interests" />
         <p className="text-sm text-slate-300">
@@ -507,7 +507,7 @@ export default function Home() {
       {/* Publications */}
       <section
         id="publications"
-        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-7"
+        className="scroll-mt-28 space-y-6 rounded-3xl border border-white/10 p-6 section-surface-7"
       >
         <SectionTitle
           eyebrow="Academic output"
@@ -531,7 +531,7 @@ export default function Home() {
       {/* Reflections */}
       <section
         id="reflections"
-        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-8"
+        className="scroll-mt-28 space-y-6 rounded-3xl border border-white/10 p-6 section-surface-8"
       >
         <SectionTitle
           eyebrow="Reflections"
@@ -568,7 +568,7 @@ export default function Home() {
       {/* Contact */}
       <section
         id="contact"
-        className="space-y-6 rounded-3xl border border-white/10 p-6 section-surface-1"
+        className="scroll-mt-28 space-y-6 rounded-3xl border border-white/10 p-6 section-surface-1"
       >
         <SectionTitle eyebrow="Get in touch" label="Contact & links" />
         <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
