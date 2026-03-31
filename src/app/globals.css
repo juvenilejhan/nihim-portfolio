@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617; /* slate-950 */
-  --foreground: #e5e7eb; /* gray-200 */
+  --background: #020617; /* default dark background */
+  --foreground: #e5e7eb; /* default light foreground */
+  --bg-gradient-start: #0ea5e9;
+  --bg-gradient-mid: #020617;
+  --bg-gradient-end: #020617;
+}
+
+:root[data-theme="light"] {
+  --background: #e5e7eb; /* slightly darker light background */
+  --foreground: #020617; /* dark text */
+  --bg-gradient-start: #e0f2fe;
+  --bg-gradient-mid: #e5e7eb;
+  --bg-gradient-end: #f9fafb;
 }
 
 @theme inline {
@@ -12,19 +23,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617;
-    --foreground: #e5e7eb;
-  }
-}
-
 body {
   background: radial-gradient(
     circle at top left,
-    #0ea5e9 0,
-    #020617 40%,
-    #020617 100%
+    var(--bg-gradient-start) 0,
+    var(--bg-gradient-mid) 40%,
+    var(--bg-gradient-end) 100%
   );
   color: var(--foreground);
   font-family:
@@ -34,4 +38,84 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+}
+
+/* Light theme readability tweaks */
+
+/* Make main text dark on light theme for better contrast */
+:root[data-theme="light"] body {
+  color: #111827; /* slate-900 */
+}
+
+:root[data-theme="light"] h1,
+:root[data-theme="light"] h2,
+:root[data-theme="light"] h3 {
+  color: #020617; /* slate-950 */
+}
+
+:root[data-theme="light"] p,
+:root[data-theme="light"] li,
+:root[data-theme="light"] a {
+  color: #111827;
+}
+
+/* Lighten card and hero backgrounds when using light theme */
+:root[data-theme="light"] .bg-slate-900\/60 {
+  background-color: rgba(255, 255, 255, 0.96);
+}
+
+:root[data-theme="light"] .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+:root[data-theme="light"] header {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme="light"] header a {
+  color: #0f172a;
+}
+
+:root[data-theme="light"] footer {
+  color: #4b5563; /* slate-600 */
+}
+
+/* Targeted overrides for low-contrast utilities in light theme */
+
+/* Make very light sky text utilities darker in light mode */
+:root[data-theme="light"] .text-sky-300\/90,
+:root[data-theme="light"] .text-sky-300 {
+  color: #0369a1; /* sky-700 */
+}
+
+:root[data-theme="light"] .text-sky-200,
+:root[data-theme="light"] .text-sky-200\/80 {
+  color: #0284c7; /* sky-600 */
+}
+
+/* Ensure slate text utilities stay clearly readable on light background */
+:root[data-theme="light"] .text-slate-50 {
+  color: #020617; /* near-black for headings and important labels */
+}
+
+:root[data-theme="light"] .text-slate-200 {
+  color: #1f2937; /* slate-800 */
+}
+
+:root[data-theme="light"] .text-slate-300 {
+  color: #374151; /* slate-700 */
+}
+
+:root[data-theme="light"] .text-slate-400 {
+  color: #4b5563; /* slate-600 */
+}
+
+/* Theme toggle and other very light text should be darkened in light mode */
+:root[data-theme="light"] .text-slate-100 {
+  color: #111827; /* slate-900 */
+}
+
+/* Slightly strengthen chip backgrounds so text remains readable */
+:root[data-theme="light"] .bg-sky-400\/10 {
+  background-color: rgba(56, 189, 248, 0.18);
 }
