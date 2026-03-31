@@ -50,7 +50,7 @@ export default function RootLayout({
 
             <footer className="border-t border-white/10 py-6 text-center text-xs text-slate-400">
               <p>
-                &copy; {new Date().getFullYear()} Nihim&apos;s portfolio. All
+                &copy; {new Date().getFullYear()} 👉Nihim&apos;s portfolio. All
                 rights reserved.
               </p>
             </footer>
