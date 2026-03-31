@@ -48,11 +48,7 @@ export function SiteHeader({ navItems }: SiteHeaderProps) {
                 onClick={() => setOpen((prev) => !prev)}
               >
                 <span className="sr-only">Toggle navigation menu</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  className="h-4 w-4"
-                >
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
                   {open ? (
                     <path
                       d="M6 6l12 12M18 6L6 18"
