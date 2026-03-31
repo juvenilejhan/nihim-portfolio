@@ -91,7 +91,7 @@ function FacebookIcon({ className }: IconProps) {
 const profileImage = "/nihim-profile.jpg";
 
 const student = {
-  name: "MD. Tasnim Hossain Nihim",
+  name: "Md. Tasnim Hossain Nihim",
   title: "1st-year MBBS Student",
   institution: "Sir Salimullah Medical College",
   year: "1st Year MBBS",
